@@ -42,6 +42,8 @@ const ContextProvider = ({ children }) => {
       setStream(currentStream);
       if (myVideo && myVideo.current) {
         myVideo.current.srcObject = currentStream;
+        myVideo.current.muted = true;
+        myVideo.current.play();
       }
     });
 
