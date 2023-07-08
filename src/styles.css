@@ -151,9 +151,6 @@ button:disabled {
   h1 {
     font-size: 18px;
   }
-  .calling-btn {
-    display: none;
-  }
 }
 
 @media (max-width: 360px) {
