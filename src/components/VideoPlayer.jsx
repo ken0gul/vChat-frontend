@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SocketContext } from "./SocketContex";
+import Video from "./Video";
 
 const VideoPlayer = () => {
   const { userVideo, callAccepted, myVideo, callEnded, stream } =
@@ -7,16 +8,15 @@ const VideoPlayer = () => {
   return (
     <>
       {stream && (
-        <div className="video-container">
-          <video playsInline muted ref={myVideo} autoPlay className="video" />
-          <video playsInline muted ref={myVideo} autoPlay className="video" />
+        <div>
+          <div className="video-container">
+            <Video myRef={myVideo} />
+          </div>
         </div>
       )}
       {callAccepted && !callEnded && (
         <div className="video-container">
-          {userVideo && (
-            <video playsInline ref={userVideo} autoPlay className="video" />
-          )}
+          {userVideo ? <Video myRef={userVideo} /> : "loading"}
         </div>
       )}
     </>
