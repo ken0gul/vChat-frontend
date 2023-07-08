@@ -6,13 +6,7 @@ const Notif = () => {
   return (
     <div className="notify-container">
       {call.isReceivingCall && !callAccepted && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "100%",
-          }}
-        >
+        <div>
           <h1>{call.name || "Some dude "} is calling:</h1>
           <button className="calling-btn" onClick={answerCall}>
             Answer
