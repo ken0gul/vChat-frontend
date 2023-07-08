@@ -49,11 +49,14 @@ form > div {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  width: 75%;
+  justify-content: center;
 }
 
 label {
   margin-right: 10px;
   flex-shrink: 0;
+  flex-grow: 1;
 }
 
 input[type="text"] {
@@ -72,7 +75,6 @@ button {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
-  width: 50%;
 }
 
 button:disabled {
