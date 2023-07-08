@@ -17,37 +17,33 @@ const ContextProvider = ({ children }) => {
   const userVideo = useRef();
   const connectionRef = useRef();
   useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-        audio: true,
-        audio: {
-          echoCancellation: true,
-          noiseSuppression: true,
-          autoGainControl: true,
-          googEchoCancellation: true,
-          googAutoGainControl: true,
-          googNoiseSuppression: true,
-          googHighpassFilter: true,
-          googTypingNoiseDetection: true,
-          googNoiseReduction: true,
-          volume: 1.0,
+    const constraints = {
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true,
+        googEchoCancellation: true,
+        googAutoGainControl: true,
+        googNoiseSuppression: true,
+        googHighpassFilter: true,
+        googTypingNoiseDetection: true,
+        googNoiseReduction: true,
+        volume: 1.0,
+      },
+      video: {
+        mandatory: {
+          minWidth: 300,
+          minHeight: 300,
+          minFrameRate: 30,
         },
-        video: true,
-        video: {
-          mandatory: {
-            minWidth: 300,
-            minHeight: 300,
-            minFrameRate: 30,
-          },
-        },
-      })
-      .then((currentStream) => {
-        setStream(currentStream);
-        if (myVideo && myVideo.current) {
-          myVideo.current.srcObject = currentStream;
-        }
-      });
+      },
+    };
+    navigator.mediaDevices.getUserMedia(constraints).then((currentStream) => {
+      setStream(currentStream);
+      if (myVideo && myVideo.current) {
+        myVideo.current.srcObject = currentStream;
+      }
+    });
 
     socket.on("me", (id) => setMe(id));
     socket.on("callUser", ({ from, name: callerName, signal }) => {
