@@ -1,6 +1,8 @@
 import React from "react";
 
-const Video = ({ myRef }) => {
-  return <video playsInline muted ref={myRef} autoPlay className="video" />;
+const Video = ({ myRef, isMuted }) => {
+  return (
+    <video playsInline muted={isMuted} ref={myRef} autoPlay className="video" />
+  );
 };
 export default Video;

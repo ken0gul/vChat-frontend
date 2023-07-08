@@ -10,13 +10,13 @@ const VideoPlayer = () => {
       {stream && (
         <div>
           <div className="video-container">
-            {myVideo ? <Video myRef={myVideo} /> : "Loading"}
+            {myVideo ? <Video myRef={myVideo} isMuted={true} /> : "Loading"}
           </div>
         </div>
       )}
       {callAccepted && !callEnded && (
         <div className="video-container">
-          {userVideo ? <Video myRef={userVideo} /> : "loading"}
+          {userVideo ? <Video isMuted={false} myRef={userVideo} /> : "loading"}
         </div>
       )}
     </>
