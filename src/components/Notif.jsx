@@ -5,7 +5,7 @@ const Notif = () => {
   const { answerCall, call, callAccepted } = useContext(SocketContext);
   console.log(call);
   return (
-    <div>
+    <div className="notify-container">
       {call.isReceivingCall && !callAccepted && (
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <h1>{call.callerName} is calling:</h1>
