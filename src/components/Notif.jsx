@@ -3,7 +3,7 @@ import { SocketContext } from "./SocketContex";
 
 const Notif = () => {
   const { answerCall, call, callAccepted } = useContext(SocketContext);
-  console.log(call);
+
   return (
     <div className="notify-container">
       {call.isReceivingCall && !callAccepted && (
