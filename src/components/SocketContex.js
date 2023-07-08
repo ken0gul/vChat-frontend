@@ -18,7 +18,30 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      .getUserMedia({
+        video: true,
+        audio: true,
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+          googEchoCancellation: true,
+          googAutoGainControl: true,
+          googNoiseSuppression: true,
+          googHighpassFilter: true,
+          googTypingNoiseDetection: true,
+          googNoiseReduction: true,
+          volume: 1.0,
+        },
+        video: true,
+        video: {
+          mandatory: {
+            minWidth: 300,
+            minHeight: 300,
+            minFrameRate: 30,
+          },
+        },
+      })
       .then((currentStream) => {
         setStream(currentStream);
         if (myVideo && myVideo.current) {
