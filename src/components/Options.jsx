@@ -12,7 +12,7 @@ function Options({ children }) {
     callUser(idToCall);
   };
   return (
-    <div>
+    <div className="options-wrapper">
       <form action="">
         <div>
           <label htmlFor="Name">Name</label>
