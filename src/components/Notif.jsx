@@ -13,6 +13,9 @@ const Notif = () => {
           </button>
         </div>
       )}
+      {call.isCallingSomeone && !callAccepted && (
+        <h1>Calling: {call.name || "Some dude "} </h1>
+      )}
     </div>
   );
 };
