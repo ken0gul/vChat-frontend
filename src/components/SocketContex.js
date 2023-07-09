@@ -62,6 +62,10 @@ const ContextProvider = ({ children }) => {
     peer.on("stream", (currentStream) => {
       if (userVideo && userVideo.current) {
         userVideo.current.srcObject = currentStream;
+      } else {
+        setTimeout(() => {
+          userVideo.current.srcObject = currentStream;
+        }, 1500);
       }
     });
     peer.signal(call.signal);
@@ -82,6 +86,10 @@ const ContextProvider = ({ children }) => {
     peer.on("stream", (currentStream) => {
       if (userVideo && userVideo.current) {
         userVideo.current.srcObject = currentStream;
+      } else {
+        setTimeout(() => {
+          userVideo.current.srcObject = currentStream;
+        }, 1500);
       }
     });
 
