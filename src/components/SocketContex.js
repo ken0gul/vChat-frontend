@@ -54,7 +54,6 @@ const ContextProvider = ({ children }) => {
         from,
         name: callerName,
         signal,
-        isCallingSomeone: true,
       });
     });
   }, []);
@@ -79,6 +78,7 @@ const ContextProvider = ({ children }) => {
   };
 
   const callUser = (id) => {
+    setCall({ isCallingSomeone: true });
     const peer = new SimplePeer({ initiator: true, trickle: false, stream });
 
     peer.on("signal", (data) => {
