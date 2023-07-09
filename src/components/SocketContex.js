@@ -80,7 +80,6 @@ const ContextProvider = ({ children }) => {
       });
     });
     peer.on("stream", (currentStream) => {
-      setTimeout(() => console.log("connecting.."), 2000);
       if (userVideo && userVideo.current) {
         userVideo.current.srcObject = currentStream;
       }
